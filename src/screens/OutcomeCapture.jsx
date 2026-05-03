@@ -14,7 +14,7 @@ const ALT_PICKS = {
 };
 
 const RECEIPT_IMAGE =
-  "https://images.unsplash.com/photo-1623123096729-26b481292919?auto=format&fit=crop&w=600&q=70";
+  "https://images.unsplash.com/photo-1731686602391-7484df33a03c?auto=format&fit=crop&w=600&q=80";
 
 const DETECTED_ITEMS = [
   { name: "Pasta — Barilla 500g", qty: 1, price: "€0.99" },
