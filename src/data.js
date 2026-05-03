@@ -16,7 +16,7 @@ export const SHELF = {
     size: "400g",
     price: "€2.20",
     retailer: "Carrefour (this store)",
-    image: img("photo-1604152135912-04a022e23696"), // pasta sauce jar
+    image: img("photo-1757844742481-2213600e8d30"), // hand-held pasta sauce jar
   },
   score: {
     value: 42,
@@ -39,7 +39,7 @@ export const SHELF = {
       price: "€2.40",
       retailer: "Carrefour (this store)",
       tag: "Lower sodium · No flagged additives",
-      image: img("photo-1606756790138-261d2b21cd75"),
+      image: img("photo-1757844744408-35c93dccc738"),
     },
     {
       name: "Barilla Sugo Naturale",
@@ -49,7 +49,7 @@ export const SHELF = {
       price: "€1.95",
       retailer: "Conad, 800m away",
       tag: "Best price · Good profile",
-      image: img("photo-1608897013039-887f21d8c804"),
+      image: img("photo-1757844743623-b9dd9c2c03a5"),
     },
     {
       name: "Cirio Rustica",
@@ -59,7 +59,7 @@ export const SHELF = {
       price: "€2.10",
       retailer: "Esselunga, 1.2km away",
       tag: "Organic · No additives",
-      image: img("photo-1572441713132-51c75654db73"),
+      image: img("photo-1757844743241-131209121009"),
     },
   ],
 };
