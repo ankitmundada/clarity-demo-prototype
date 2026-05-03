@@ -35,16 +35,16 @@ export default function DecideHome({ onPick }) {
             testId="card-shelf"
           />
           <PainCard
-            emoji="🏷️"
-            headline="Build a smart shopping list"
-            onClick={() => onPick("weekly")}
-            testId="card-weekly"
-          />
-          <PainCard
             emoji="🔍"
             headline="Ask Clarity to help you decide"
             onClick={() => onPick("considered")}
             testId="card-considered"
+          />
+          <PainCard
+            emoji="🏷️"
+            headline="Build a smart shopping list"
+            onClick={() => onPick("weekly")}
+            testId="card-weekly"
           />
         </div>
       </section>

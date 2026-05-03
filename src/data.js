@@ -67,15 +67,48 @@ export const SHELF = {
 export const WEEKLY = {
   total: "€29.25",
   saving: "€5.20",
-  items: [
-    { name: "Pasta — Barilla 500g", retailer: "Conad", price: "€0.99", tagTone: "green", tag: "On promo — save €0.40", image: img("photo-1551462147-37885acc36f1") },
-    { name: "Olive oil — 1L", retailer: "Carrefour", price: "€5.90", tagTone: "green", tag: "Lowest price this week", image: img("photo-1474979266404-7eaacbcd87c5") },
-    { name: "Coffee beans — 500g", retailer: "Carrefour", price: "€4.20", tagTone: "gray", tag: "Your usual", image: img("photo-1559056199-641a0ac8b55e") },
-    { name: "Greek yogurt — 4-pack", retailer: "Conad", price: "€2.49", tagTone: "green", tag: "On promo — save €0.80", image: img("photo-1571212515416-fef01fc43637") },
-    { name: "Bananas — 1kg", retailer: "Lidl", price: "€1.20", tagTone: "gray", tag: "Cheapest", image: img("photo-1603833665858-e61d17a86224") },
-    { name: "Toilet paper — 12-pack", retailer: "Conad", price: "€4.99", tagTone: "green", tag: "On promo — save €1.50", image: img("photo-1584556812952-905ffd0c611a") },
-    { name: "Laundry detergent — 1.5L", retailer: "Carrefour", price: "€6.49", tagTone: "gray", tag: "Your usual brand on promo", image: img("photo-1610557892470-55d9e80c0bce") },
-    { name: "Children's cereal — 500g", retailer: "Conad", price: "€2.99", tagTone: "amber", tag: "Lower-sugar alt suggested", image: img("photo-1521483451569-e33803c0330c") },
+  groups: [
+    {
+      retailer: "Conad",
+      logoBg: "bg-amber-100",
+      logoText: "text-amber-700",
+      address: "Via Diagonal, 408 - Barcelona",
+      distance: "1.2 km",
+      total: "€16.45",
+      saving: "€2.70",
+      items: [
+        { name: "Pasta — Barilla 500g", price: "€0.99", original: "€1.39", tagTone: "green", tag: "On promo — save €0.40", image: img("photo-1551462147-37885acc36f1") },
+        { name: "Greek yogurt — 4-pack", price: "€2.49", original: "€3.29", tagTone: "green", tag: "On promo — save €0.80", image: img("photo-1571212515416-fef01fc43637") },
+        { name: "Toilet paper — 12-pack", price: "€4.99", original: "€6.49", tagTone: "green", tag: "On promo — save €1.50", image: img("photo-1584556812952-905ffd0c611a") },
+        { name: "Children's cereal — 500g", price: "€2.99", tagTone: "amber", tag: "Lower-sugar alt suggested", image: img("photo-1521483451569-e33803c0330c") },
+        { name: "Coffee beans — 500g", price: "€4.20", tagTone: "gray", tag: "Your usual", image: img("photo-1559056199-641a0ac8b55e") },
+      ],
+    },
+    {
+      retailer: "Carrefour",
+      logoBg: "bg-blue-100",
+      logoText: "text-blue-700",
+      address: "Av. Diagonal, 617 - Barcelona",
+      distance: "850 m",
+      total: "€12.39",
+      saving: "€1.30",
+      items: [
+        { name: "Olive oil — 1L", price: "€5.90", original: "€6.90", tagTone: "green", tag: "Lowest price this week", image: img("photo-1474979266404-7eaacbcd87c5") },
+        { name: "Laundry detergent — 1.5L", price: "€6.49", tagTone: "gray", tag: "Your usual brand on promo", image: img("photo-1610557892470-55d9e80c0bce") },
+      ],
+    },
+    {
+      retailer: "Lidl",
+      logoBg: "bg-yellow-100",
+      logoText: "text-yellow-700",
+      address: "Carrer de Sardenya, 354 - Barcelona",
+      distance: "1.8 km",
+      total: "€1.20",
+      saving: "€0.20",
+      items: [
+        { name: "Bananas — 1kg", price: "€1.20", tagTone: "gray", tag: "Cheapest", image: img("photo-1603833665858-e61d17a86224") },
+      ],
+    },
   ],
   plan:
     "Split between Conad (5 items, mostly the promos) and Carrefour (3 items, including your usual coffee). Skip Lidl this week — only bananas are meaningfully cheaper there, not worth the detour.",

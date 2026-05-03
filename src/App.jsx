@@ -64,7 +64,7 @@ export default function App() {
           <main className="flex-1 overflow-y-auto phone-scroll bg-white">
             {renderScreen()}
           </main>
-          <BottomNav />
+          <BottomNav onHome={goHome} />
         </div>
       </PhoneFrame>
     </div>

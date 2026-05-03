@@ -51,8 +51,8 @@ export default function ShelfFlow({ onComplete, onBack }) {
 function ScannerScreen({ scanning, onScan }) {
   return (
     <div className="px-4 py-5">
-      <div className="relative bg-slate-900 rounded-2xl aspect-[3/4] flex items-center justify-center overflow-hidden">
-        <div className={`reticle border-2 border-white/80 rounded-2xl ${scanning ? "border-tiendeo-red" : ""}`} style={{ width: "70%", height: "55%" }}>
+      <div className="relative bg-slate-900 rounded-2xl flex items-center justify-center overflow-hidden" style={{ height: 280 }}>
+        <div className={`reticle border-2 border-white/80 rounded-2xl ${scanning ? "border-tiendeo-red" : ""}`} style={{ width: "70%", height: "62%" }}>
           {/* Corner accents */}
           <div className="absolute inset-0">
             {["top-3 left-3", "top-3 right-3", "bottom-3 left-3", "bottom-3 right-3"].map((p, i) => (

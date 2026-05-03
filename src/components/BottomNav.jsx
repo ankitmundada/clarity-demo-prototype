@@ -1,25 +1,25 @@
-// Bottom nav: 5 tabs, DECIDE always shown active in this prototype
-export default function BottomNav() {
+// Bottom nav: 5 tabs, CLARITY always shown active in this prototype
+export default function BottomNav({ onHome }) {
   const tabs = [
     { key: "featured", label: "FEATURED", Icon: StarIcon },
     { key: "favourites", label: "FAVOURITES", Icon: HeartIcon },
-    { key: "clarity", label: "CLARITY", Icon: SparkleIcon, primary: true },
+    { key: "clarity", label: "CLARITY", Icon: SparkleIcon, primary: true, onClick: onHome },
     { key: "mylist", label: "MY LIST", Icon: ListIcon },
     { key: "account", label: "ACCOUNT", Icon: PersonIcon },
   ];
   return (
     <nav className="bg-white border-t border-slate-200 pt-1 pb-2 px-2 flex items-end justify-around">
       {tabs.map((t) => (
-        <Tab key={t.key} Icon={t.Icon} label={t.label} primary={t.primary} />
+        <Tab key={t.key} Icon={t.Icon} label={t.label} primary={t.primary} onClick={t.onClick} />
       ))}
     </nav>
   );
 }
 
-function Tab({ Icon, label, primary }) {
+function Tab({ Icon, label, primary, onClick }) {
   if (primary) {
     return (
-      <button className="flex flex-col items-center gap-0.5 px-1 -mt-2">
+      <button onClick={onClick} className="flex flex-col items-center gap-0.5 px-1 -mt-2">
         <span className="w-9 h-9 rounded-full bg-tiendeo-red flex items-center justify-center shadow-md shadow-tiendeo-red/30">
           <Icon className="w-5 h-5 text-white" />
         </span>
