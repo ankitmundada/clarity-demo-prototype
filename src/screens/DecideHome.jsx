@@ -30,22 +30,19 @@ export default function DecideHome({ onPick }) {
         <div className="space-y-2.5">
           <PainCard
             emoji="🛒"
-            headline={"“Is this actually healthy?”"}
-            sub="Scan a product at the shelf"
+            headline="Scan a product at the shelf"
             onClick={() => onPick("shelf")}
             testId="card-shelf"
           />
           <PainCard
             emoji="🏷️"
-            headline={"“Twenty deals across six flyers — where do I start?”"}
-            sub="Build a smart shopping list"
+            headline="Build a smart shopping list"
             onClick={() => onPick("weekly")}
             testId="card-weekly"
           />
           <PainCard
             emoji="🔍"
-            headline={"“I've been researching for two weeks, still stuck.”"}
-            sub="Ask Clarity to help you decide"
+            headline="Ask Clarity to help you decide"
             onClick={() => onPick("considered")}
             testId="card-considered"
           />
@@ -67,7 +64,7 @@ export default function DecideHome({ onPick }) {
   );
 }
 
-function PainCard({ emoji, headline, sub, onClick, testId }) {
+function PainCard({ emoji, headline, onClick, testId }) {
   return (
     <button
       onClick={onClick}
@@ -81,7 +78,6 @@ function PainCard({ emoji, headline, sub, onClick, testId }) {
         <p className="text-[14px] font-bold text-slate-900 leading-snug">
           {headline}
         </p>
-        <p className="text-[12px] text-slate-500 mt-0.5">{sub}</p>
       </div>
       <svg viewBox="0 0 24 24" className="w-5 h-5 text-slate-300 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.2">
         <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
