@@ -3,6 +3,8 @@ import { ClarityMark, SectionHeader } from "../components/Common";
 export default function DecideHome({ onPick }) {
   return (
     <div className="px-4 py-4 space-y-6">
+      <DemoScenarioCard />
+
       {/* Hero card */}
       <div className="bg-tiendeo-redTint rounded-2xl p-4">
         <div className="flex items-start gap-2">
@@ -85,6 +87,22 @@ function PainCard({ emoji, headline, sub, onClick, testId }) {
         <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </button>
+  );
+}
+
+function DemoScenarioCard() {
+  return (
+    <div className="bg-slate-900 text-white rounded-2xl p-3.5 border border-amber-300/30">
+      <p className="text-[9.5px] font-extrabold tracking-[0.18em] text-amber-300 mb-1.5">
+        DEMO SCENARIO · VISIBLE IN PROTOTYPE ONLY
+      </p>
+      <p className="text-[12.5px] leading-relaxed text-slate-100">
+        You are <span className="font-bold">Andrea</span>, a Tiendeo user in
+        Barcelona. The three options below walk through three real moments
+        in his week — a shelf decision, his weekly shop, and a research-heavy
+        purchase.
+      </p>
+    </div>
   );
 }
 

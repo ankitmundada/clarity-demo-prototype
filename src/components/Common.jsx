@@ -41,12 +41,17 @@ export function ScoreBadge({ value, label, tone = "amber", size = "md" }) {
 
 export function PersonaBanner({ text, onDismiss }) {
   return (
-    <div className="bg-slate-900 text-white text-[13px] px-4 py-2 flex items-center justify-between">
-      <span className="leading-snug pr-3">{text}</span>
+    <div className="bg-slate-900 text-white px-4 py-2 flex items-start justify-between gap-3 border-b border-amber-300/30">
+      <div className="flex-1">
+        <p className="text-[9px] font-extrabold tracking-[0.18em] text-amber-300">
+          DEMO SCENARIO
+        </p>
+        <p className="text-[12.5px] leading-snug mt-0.5">{text}</p>
+      </div>
       <button
         onClick={onDismiss}
         aria-label="Dismiss"
-        className="text-white/70 hover:text-white text-lg leading-none"
+        className="text-white/70 hover:text-white text-lg leading-none mt-1"
       >
         ×
       </button>
