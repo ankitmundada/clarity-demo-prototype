@@ -34,18 +34,6 @@ export default function WeeklyFlow({ onComplete, onBack }) {
       <ScreenHeader title="Your weekly shop, optimized" onBack={onBack} />
 
       <div className="px-4 pt-3 pb-4">
-        {/* Top totals strip — Tiendeo savings list pattern */}
-        <div className="flex items-center justify-end mb-3">
-          <div className="text-right">
-            <p className="text-[14px] text-slate-700">
-              total <span className="font-extrabold text-slate-900">{WEEKLY.total}</span>
-            </p>
-            <p className="text-[14px] text-slate-700">
-              saving <span className="font-extrabold text-emerald-600">{WEEKLY.saving}</span>
-            </p>
-          </div>
-        </div>
-
         {/* Info banner */}
         <div className="bg-tiendeo-redTint rounded-xl px-3 py-2.5 flex items-start gap-2 mb-4">
           <ClarityMark className="w-4 h-4 text-tiendeo-red mt-0.5 shrink-0" />
