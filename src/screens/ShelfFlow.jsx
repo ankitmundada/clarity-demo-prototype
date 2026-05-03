@@ -148,7 +148,7 @@ function ResultScreen({ whyOpen, onToggleWhy, onComplete }) {
         <div className="flex items-start gap-2">
           <ClarityMark className="w-4 h-4 text-tiendeo-red mt-0.5 shrink-0" />
           <p className="text-[13px] text-slate-800 italic leading-relaxed">
-            "Maria, you flagged 'low-sodium' as a household priority. This product is high in sodium."
+            "Andrea, you flagged 'low-sodium' as a household priority. This product is high in sodium."
           </p>
         </div>
       </div>

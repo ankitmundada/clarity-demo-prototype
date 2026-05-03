@@ -10,7 +10,7 @@ import { PERSONAS, TVS } from "../data";
 
 const FIRST_MSG = {
   who: "clarity",
-  text: "Hi Sara — I see you've been comparing TVs for a while. Want me to help narrow it down? Tell me what matters most.",
+  text: "Hi Andrea — I see you've been comparing TVs for a while. Want me to help narrow it down? Tell me what matters most.",
   chips: ["Best picture for movies", "Gaming, mostly PS5", "Best value under €800"],
 };
 

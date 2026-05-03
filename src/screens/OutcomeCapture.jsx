@@ -121,7 +121,7 @@ export default function OutcomeCapture({ flow = "shelf", onDone }) {
           <p className="text-[14px] font-bold text-slate-900 leading-relaxed">
             {confirmation}
           </p>
-          <p className="text-[11px] text-slate-400 mt-3">Returning to DECIDE…</p>
+          <p className="text-[11px] text-slate-400 mt-3">Returning to Clarity…</p>
         </div>
       )}
 

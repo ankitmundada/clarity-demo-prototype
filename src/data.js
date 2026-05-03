@@ -1,9 +1,9 @@
 // Hardcoded fake data for the demo
 
 export const PERSONAS = {
-  shelf: { name: "Maria", context: "is at her local Carrefour. She picks up a jar of pasta sauce." },
+  shelf: { name: "Andrea", context: "is at his local Carrefour. He picks up a jar of pasta sauce." },
   weekly: { name: "Andrea", context: "is planning the weekly shop. He has flyers from 4 supermarkets near him." },
-  considered: { name: "Sara", context: "is buying her first 4K TV. She's been researching for two weeks." },
+  considered: { name: "Andrea", context: "is buying his first 4K TV. He's been researching for two weeks." },
 };
 
 // Stable image placeholders (Unsplash source URLs)

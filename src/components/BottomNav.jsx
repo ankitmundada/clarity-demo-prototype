@@ -3,7 +3,7 @@ export default function BottomNav() {
   const tabs = [
     { key: "featured", label: "FEATURED", Icon: StarIcon },
     { key: "favourites", label: "FAVOURITES", Icon: HeartIcon },
-    { key: "decide", label: "DECIDE", Icon: SparkleIcon, primary: true },
+    { key: "clarity", label: "CLARITY", Icon: SparkleIcon, primary: true },
     { key: "mylist", label: "MY LIST", Icon: ListIcon },
     { key: "account", label: "ACCOUNT", Icon: PersonIcon },
   ];
