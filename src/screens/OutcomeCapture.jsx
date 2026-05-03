@@ -46,7 +46,20 @@ export default function OutcomeCapture({ flow = "shelf", onDone }) {
   const heading = `${framing.prefix} ${framing.question}`;
 
   return (
-    <div className="px-4 py-5 relative min-h-full bg-white">
+    <div className="relative min-h-full bg-white">
+      <div className="flex items-center px-2 pt-3">
+        <button
+          onClick={onDone}
+          aria-label="Back to Clarity"
+          className="w-9 h-9 flex items-center justify-center rounded-full hover:bg-slate-100"
+        >
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2.2">
+            <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div className="px-4 pb-5">
       <div className="text-center mb-5">
         <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-3">
           <svg viewBox="0 0 24 24" className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="3">
@@ -152,6 +165,7 @@ export default function OutcomeCapture({ flow = "shelf", onDone }) {
           {toast}
         </div>
       )}
+      </div>
     </div>
   );
 }
