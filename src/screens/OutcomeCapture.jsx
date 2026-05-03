@@ -13,7 +13,22 @@ const ALT_PICKS = {
   considered: ["Hisense U7N", "TCL C805", "Samsung Q60D", "A different model", "Other"],
 };
 
-// state: ask | picking | scanning-receipt | capturing-receipt | confirmed
+const RECEIPT_IMAGE =
+  "https://images.unsplash.com/photo-1623123096729-26b481292919?auto=format&fit=crop&w=600&q=70";
+
+const DETECTED_ITEMS = [
+  { name: "Pasta — Barilla 500g", qty: 1, price: "€0.99" },
+  { name: "Olive oil — 1L", qty: 1, price: "€5.90" },
+  { name: "Coffee beans — 500g", qty: 1, price: "€4.20" },
+  { name: "Greek yogurt — 4-pack", qty: 1, price: "€2.49" },
+  { name: "Bananas — 1kg", qty: 1, price: "€1.20" },
+  { name: "Toilet paper — 12-pack", qty: 1, price: "€4.99" },
+  { name: "Laundry detergent — 1.5L", qty: 1, price: "€6.49" },
+  { name: "Children's cereal — 500g", qty: 1, price: "€2.99" },
+];
+const DETECTED_TOTAL = "€29.25";
+
+// state: ask | picking | scanning-receipt | capturing-receipt | receipt-result | confirmed
 export default function OutcomeCapture({ flow = "shelf", onDone }) {
   const [state, setState] = useState("ask");
   const [confirmation, setConfirmation] = useState("");
@@ -46,10 +61,11 @@ export default function OutcomeCapture({ flow = "shelf", onDone }) {
   const onSnapReceipt = () => setState("scanning-receipt");
   const onCaptureReceipt = () => {
     setState("capturing-receipt");
-    setTimeout(() => {
-      setConfirmation("Receipt captured. Clarity matched 8 items from your trip. +50 points.");
-      setState("confirmed");
-    }, 800);
+    setTimeout(() => setState("receipt-result"), 900);
+  };
+  const onConfirmReceipt = () => {
+    setConfirmation("Thanks Andrea — we've logged this trip. Clarity will use it to sharpen your next recommendations. +50 points.");
+    setState("confirmed");
   };
 
   const framing = FRAMING[flow] || FRAMING.shelf;
@@ -62,6 +78,17 @@ export default function OutcomeCapture({ flow = "shelf", onDone }) {
         capturing={state === "capturing-receipt"}
         onCapture={onCaptureReceipt}
         onBack={() => setState("ask")}
+      />
+    );
+  }
+
+  if (state === "receipt-result") {
+    return (
+      <ReceiptResultScreen
+        onConfirm={onConfirmReceipt}
+        onEdit={() => showToast("Edit not available for demo")}
+        onBack={() => setState("scanning-receipt")}
+        toast={toast}
       />
     );
   }
@@ -263,6 +290,98 @@ function ReceiptScannerScreen({ capturing, onCapture, onBack }) {
           Demo only — capture is simulated
         </p>
       </div>
+    </div>
+  );
+}
+
+function ReceiptResultScreen({ onConfirm, onEdit, onBack, toast }) {
+  return (
+    <div className="bg-white relative">
+      <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-100">
+        <button
+          onClick={onBack}
+          className="w-8 h-8 flex items-center justify-center -ml-1"
+          aria-label="Back"
+        >
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-slate-700" fill="none" stroke="currentColor" strokeWidth="2.2">
+            <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+        <h1 className="text-[16px] font-bold text-slate-900 flex-1">Receipt captured</h1>
+      </div>
+
+      <div className="px-4 py-4 space-y-4 fade-in-up">
+        {/* Captured receipt thumbnail */}
+        <div className="flex items-start gap-3 bg-slate-50 rounded-2xl p-3">
+          <div className="w-20 h-28 bg-white shrink-0 overflow-hidden border border-slate-200">
+            <img
+              src={RECEIPT_IMAGE}
+              alt="Captured receipt"
+              className="object-cover w-full h-full"
+              onError={(e) => { e.currentTarget.style.display = "none"; }}
+            />
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-[12px] text-emerald-700 font-bold flex items-center gap-1">
+              <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="3">
+                <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              Capture successful
+            </p>
+            <p className="text-[14px] font-extrabold text-slate-900 mt-1 leading-tight">
+              {DETECTED_ITEMS.length} items detected
+            </p>
+            <p className="text-[12px] text-slate-500 mt-0.5">
+              Total <span className="font-bold text-slate-900">{DETECTED_TOTAL}</span>
+            </p>
+          </div>
+        </div>
+
+        {/* Detected items list */}
+        <div>
+          <p className="text-[12px] font-bold text-slate-700 mb-2">
+            Review the items Clarity found
+          </p>
+          <ul className="border border-slate-200 rounded-xl divide-y divide-slate-100">
+            {DETECTED_ITEMS.map((item, i) => (
+              <li key={i} className="flex items-center justify-between px-3 py-2.5 text-[13px]">
+                <div className="flex items-center gap-2 min-w-0">
+                  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-emerald-600 shrink-0" fill="none" stroke="currentColor" strokeWidth="3">
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                  <span className="font-semibold text-slate-900 truncate">{item.name}</span>
+                  {item.qty > 1 && (
+                    <span className="text-slate-500 text-[11px]">×{item.qty}</span>
+                  )}
+                </div>
+                <span className="text-slate-700 font-semibold shrink-0 ml-3">{item.price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* CTAs */}
+        <div className="flex gap-2 pt-1">
+          <button
+            onClick={onConfirm}
+            className="flex-1 bg-tiendeo-red hover:bg-tiendeo-redDark text-white font-bold text-[14px] py-3 rounded-full transition-colors"
+          >
+            Confirm
+          </button>
+          <button
+            onClick={onEdit}
+            className="px-5 border border-tiendeo-red text-tiendeo-red font-bold text-[14px] py-3 rounded-full bg-white hover:bg-tiendeo-redTint transition-colors"
+          >
+            Edit list
+          </button>
+        </div>
+      </div>
+
+      {toast && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[12px] px-4 py-2 rounded-full shadow-lg fade-in-up z-30">
+          {toast}
+        </div>
+      )}
     </div>
   );
 }
