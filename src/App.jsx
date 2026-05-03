@@ -41,10 +41,6 @@ export default function App() {
     }
   };
 
-  // Header search hint changes for chat flow
-  const searchPlaceholder =
-    screen === "considered" ? "Ask Clarity anything..." : "Ask Clarity anything...";
-
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-start py-6 px-4 relative">
       <button
@@ -60,7 +56,7 @@ export default function App() {
 
       <PhoneFrame>
         <div className="flex flex-col h-full bg-white">
-          <TopHeader searchPlaceholder={searchPlaceholder} />
+          <TopHeader />
           <main className="flex-1 overflow-y-auto phone-scroll bg-white">
             {renderScreen()}
           </main>
