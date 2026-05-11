@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import TopHeader from "./components/TopHeader";
 import BottomNav from "./components/BottomNav";
 import DecideHome from "./screens/DecideHome";
@@ -63,6 +64,7 @@ export default function App() {
           <BottomNav onHome={goHome} />
         </div>
       </PhoneFrame>
+      <Analytics />
     </div>
   );
 }
